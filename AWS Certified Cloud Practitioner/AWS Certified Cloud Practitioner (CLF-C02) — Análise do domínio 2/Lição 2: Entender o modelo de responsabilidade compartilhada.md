@@ -1,1 +1,136 @@
-Vamos começar com a primeira declaração de tarefa do Domínio 2, que é entender o modelo de responsabilidade compartilhada da AWS. No Domínio 1, discutimos a AWS como computação em nuvem e também apresentamos a infraestrutura global da AWS. Nesta lição, daremos um passo adiante e discutiremos o Modelo de responsabilidade compartilhada da AWS. O que é o modelo de responsabilidade compartilhada da AWS? O Modelo de responsabilidade compartilhada da AWS é como a AWS fornece clareza sobre quais áreas de segurança dos sistemas pertencem à AWS e quais pertencem ao cliente. A AWS fornece o Modelo de responsabilidade compartilhada para que você tenha clareza sobre quais elementos da infraestrutura a AWS gerencia e quais elementos os clientes são responsáveis pelo gerenciamento. Em um nível muito alto, a AWS é responsável pela segurança da nuvem, mas você é responsável pela segurança dos seus dados, aplicações etc.na(abre em uma nova guia) nuvem. Se você observar o diagrama com a infraestrutura global da AWS na parte inferior, também verá diferentes níveis de serviço na parte superior dessa infraestrutura global. Existem Regiões, Zonas de Disponibilidade e locais de borda em todo o mundo. E além disso, temos a infraestrutura global da AWS. A AWS gerencia tudo isso, o hardware, a segurança e muito mais para a infraestrutura global. E vocês, como clientes da AWS, não têm controle sobre nada disso e não precisam se preocupar com essa infraestrutura. Agora podemos adicionar o próximo nível da infraestrutura global e são os níveis:computação, armazenamento, redes, bancos de dados e assim por diante. A AWS é novamente responsável por gerenciá-los e pela segurança desses serviços e sistemas. Existe outro nível que a AWS gerencia, o software que auxilia qualquer um dos níveis de serviço abaixo dele. Portanto, a AWS gerencia as Regiões, a infraestrutura global, o hardware, a rede e os serviços de nível como computação, bancos de dados, rede, armazenamento e muito mais, e também qualquer software usado para fornecer esses serviços. Por exemplo, se você optar por provisionar uma instância do Amazon EC2 no nível de computação da AWS, a AWS gerenciará a Região e a Zona de Disponibilidade em que sua instância do Amazon EC2 será executada. A AWS cuida do provisionamento e da segurança, da computação, das redes e do armazenamento necessários para essa instância e também cuida do software da instância, como a interface do usuário ou o hipervisor. Agora é aqui que entra a sua responsabilidade. Você é responsável pelo sistema operacional e superior. Seriam coisas como criptografia de dados do lado do cliente, integridade, autenticação, criptografia do lado do servidor e proteção do tráfego de rede. E isso inclui criptografar seus dados, usar certificados SSL e assim por diante. Você é responsável por tudo isso, bem como pelo sistema operacional e pelas configurações de rede e firewall. Você é responsável por sua aplicação e pelo gerenciamento de sua identidade e acesso, portanto permite que as pessoas tenham determinado acesso à sua conta e aos serviços dessa conta. Você também é responsável pelos dados de seus clientes, protegendo-os e, definitivamente, pelos backups desses dados. Ser um Cloud Practitioner significa que você deve estar apto a determinar quando é necessário proteger recursos na AWS e o quanto precisa se envolver na segurança, o que pode variar de um serviço para outro. Outro exemplo é: quem é responsável por proteger os data centers que hospedam serviços da AWS? Nesse caso, a resposta é a AWS e não o cliente. Esse é o nível de esforço que você precisa estar apto a fazer com relação ao Modelo de responsabilidade compartilhada da AWS. Você também deve conseguir descrever como a responsabilidade de um cliente muda dependendo do serviço que ele está usando. Por exemplo, digamos que você esteja hospedando um banco de dados MySQL no Amazon RDS. Você é responsável por aplicar patches no mecanismo de banco de dados em uma instância de banco de dados Amazon RDS ou a AWS é responsável por esses patches de segurança? E se você tiver o mesmo banco de dados em execução em uma instância do Amazon EC2? Quem seria responsável pela aplicação de patches nesse caso de uso? A resposta para essas duas perguntas é que a AWS é responsável pela aplicação de patches em um Amazon RDS, enquanto você, o cliente, é responsável pela aplicação de patches no Amazon EC2. As tarefas pelas quais você é responsável com relação à segurança dependem de um serviço da AWS ser ou não gerenciado. No exemplo anterior, o Amazon RDS é um serviço gerenciado, portanto, você precisa realizar menos tarefas de segurança e gerenciamento em geral. No entanto, o Amazon EC2 não é gerenciado, o que significa que você tem mais controle sobre o serviço e, portanto, é mais responsável pela execução de tarefas de segurança e gerenciamento. A lição principal aqui é o nível de responsabilidade que o cliente assume depende do serviço usado. Para o exame, é importante saber pelo que o cliente é responsável em comparação com a AWS para serviços como Amazon RDS, Amazon EC2, Amazon DynamoDB e AWS Lambda, para citar alguns. Vamos começar com a segunda declaração de tarefa e falar sobre segurança, governança e conformidade da nuvem.
+# Lição 2: Entender o modelo de responsabilidade compartilhada
+
+## Introdução
+
+Vamos começar com a primeira declaração de tarefa do Domínio 2, que é entender o modelo de responsabilidade compartilhada da AWS.
+
+No Domínio 1, discutimos a AWS como computação em nuvem e também apresentamos a infraestrutura global da AWS. Nesta lição, daremos um passo adiante e discutiremos o Modelo de responsabilidade compartilhada da AWS.
+
+## O que é o Modelo de Responsabilidade Compartilhada da AWS?
+
+O Modelo de responsabilidade compartilhada da AWS é como a AWS fornece clareza sobre quais áreas de segurança dos sistemas pertencem à AWS e quais pertencem ao cliente.
+
+A AWS fornece o Modelo de responsabilidade compartilhada para que você tenha clareza sobre:
+
+- Quais elementos da infraestrutura a AWS gerencia
+- Quais elementos os clientes são responsáveis pelo gerenciamento
+
+### Conceito Fundamental
+
+Em um nível muito alto:
+
+- **AWS é responsável pela segurança DA nuvem**
+- **Você é responsável pela segurança NA nuvem**
+
+## Estrutura da Infraestrutura AWS
+
+Se você observar o diagrama com a infraestrutura global da AWS na parte inferior, também verá diferentes níveis de serviço na parte superior dessa infraestrutura global.
+
+### Níveis da Infraestrutura
+
+**Infraestrutura Global:**
+
+- Regiões
+- Zonas de Disponibilidade  
+- Locais de borda em todo o mundo
+
+A AWS gerencia tudo isso: o hardware, a segurança e muito mais para a infraestrutura global. Vocês, como clientes da AWS, não têm controle sobre nada disso e não precisam se preocupar com essa infraestrutura.
+
+**Níveis de Serviço:**
+
+- Computação
+- Armazenamento
+- Redes
+- Bancos de dados
+
+A AWS é novamente responsável por gerenciá-los e pela segurança desses serviços e sistemas.
+
+**Software de Gerenciamento:**
+
+Existe outro nível que a AWS gerencia: o software que auxilia qualquer um dos níveis de serviço abaixo dele.
+
+## Exemplo Prático: Amazon EC2
+
+Por exemplo, se você optar por provisionar uma instância do Amazon EC2 no nível de computação da AWS:
+
+### Responsabilidades da AWS
+
+- Gerenciará a Região e a Zona de Disponibilidade em que sua instância do Amazon EC2 será executada
+- Cuida do provisionamento e da segurança da computação, das redes e do armazenamento necessários para essa instância
+- Cuida do software da instância, como a interface do usuário ou o hipervisor
+
+### Responsabilidades do Cliente
+
+Agora é aqui que entra a sua responsabilidade. Você é responsável pelo **sistema operacional e superior**:
+
+- Criptografia de dados do lado do cliente
+- Integridade
+- Autenticação
+- Criptografia do lado do servidor
+- Proteção do tráfego de rede
+- Criptografar seus dados
+- Usar certificados SSL
+- Sistema operacional
+- Configurações de rede e firewall
+- Aplicação
+- Gerenciamento de identidade e acesso
+- Dados de seus clientes e proteção deles
+- Backups desses dados
+
+## Responsabilidades por Tipo de Serviço
+
+Ser um Cloud Practitioner significa que você deve estar apto a determinar quando é necessário proteger recursos na AWS e o quanto precisa se envolver na segurança, o que pode variar de um serviço para outro.
+
+### Exemplo de Análise
+
+**Pergunta:** Quem é responsável por proteger os data centers que hospedam serviços da AWS?
+
+**Resposta:** A AWS e não o cliente.
+
+Esse é o nível de esforço que você precisa estar apto a fazer com relação ao Modelo de responsabilidade compartilhada da AWS.
+
+## Variação de Responsabilidades por Serviço
+
+Você também deve conseguir descrever como a responsabilidade de um cliente muda dependendo do serviço que ele está usando.
+
+### Exemplo Comparativo: Banco de Dados MySQL
+
+#### Cenário 1: Amazon RDS
+
+- Pergunta: Você é responsável por aplicar patches no mecanismo de banco de dados em uma instância de banco de dados Amazon RDS?
+- Resposta: **Não, a AWS é responsável por esses patches de segurança**
+
+#### Cenário 2: Amazon EC2
+
+- Pergunta: E se você tiver o mesmo banco de dados em execução em uma instância do Amazon EC2? Quem seria responsável pela aplicação de patches?
+- Resposta: **Você, o cliente, é responsável pela aplicação de patches no Amazon EC2**
+
+### Conceito-Chave: Serviços Gerenciados vs Não Gerenciados
+
+As tarefas pelas quais você é responsável com relação à segurança dependem de um serviço da AWS ser ou não **gerenciado**.
+
+**Serviços Gerenciados (ex: Amazon RDS):**
+
+- Você precisa realizar **menos tarefas** de segurança e gerenciamento em geral
+
+**Serviços Não Gerenciados (ex: Amazon EC2):**
+
+- Você tem **mais controle** sobre o serviço
+- Você é **mais responsável** pela execução de tarefas de segurança e gerenciamento
+
+## Lição Principal
+
+> **O nível de responsabilidade que o cliente assume depende do serviço usado.**
+
+## Preparação para o Exame
+
+Para o exame, é importante saber pelo que o cliente é responsável em comparação com a AWS para serviços como:
+
+- Amazon RDS
+- Amazon EC2
+- Amazon DynamoDB
+- AWS Lambda
+
+---
+
+Vamos começar com a segunda declaração de tarefa e falar sobre segurança, governança e conformidade da nuvem.
